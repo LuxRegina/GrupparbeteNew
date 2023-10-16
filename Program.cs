@@ -41,7 +41,13 @@
                 {
 
                 }
-                else
+                //Kommandot "arne" ska skriva ut arnes uppgifter.
+                else if (command == "arne")
+                {
+                    string text = File.ReadAllText(adresslista.txt);
+                    Console.WriteLine(text);
+                }
+                else if(command == "berith")
                 {
                     Console.WriteLine($"Okänt kommando: {command}");
                 }
