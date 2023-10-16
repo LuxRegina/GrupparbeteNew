@@ -18,15 +18,21 @@ namespace AddressList
             {
                 Console.WriteLine($"Namn: {name},\n    Telefonnummer: {phoneNR}, \n    Adress: {adress}");
             }
-
+            
         }
 
-        static List<Person> personList = new List<Person>(); 
-
+        static List<Person> personList = new List<Person>();
         static void Main(string[] args)
         {
 
-            
+            Person arne = new Person(" Arne")
+            {
+                phoneNR = "08347583",
+                adress = "väg 123"
+            };
+
+            arne.Print();
+
 
             Console.WriteLine("Hej och välkommen till adresslistan.");
             Console.WriteLine("Skriv 'hjälp' för hjälp!");
@@ -44,15 +50,20 @@ namespace AddressList
 
                 }
                 //Kommandot "arne" ska skriva ut arnes uppgifter.
-                else if (command == "arne")
+                else if (command == "load")
                 {
-                    string text = File.ReadAllText("Adresser.txt");
+                    string[] text = File.ReadAllLines("Adresser.txt");
+                    foreach (string str in text)
+                    {
+                        str.Split(",");
+                    }
                     Console.WriteLine(text);
                 }
                 else if(command == "berith")
                 {
                     Console.WriteLine($"Okänt kommando: {command}");
                 }
+
             } while (command != "sluta");
             Console.WriteLine("HEJ DÅ!");
 
