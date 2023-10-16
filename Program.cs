@@ -24,7 +24,7 @@
                     Console.WriteLine($"Okänt kommando: {command}");
                 }
             } while (command != "sluta");
-            Console.WriteLine("Hej då!");
+            Console.WriteLine("HEJ DÅ!");
         }
     }
 }
