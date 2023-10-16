@@ -47,11 +47,16 @@ namespace AddressList
 
                 }
                 //Kommandot "arne" ska skriva ut arnes uppgifter.
-                else if (command == "arne")
+                else if (command == "load")
                 {
-                    string text = File.ReadAllText("Adresser.txt");
+                    string[] text = File.ReadAllLines("Adresser.txt");
+                    foreach(string str in text)
+                    {
+                        str.Split(",");
+                    }
                     Console.WriteLine(text);
                 }
+                
                 else if(command == "berith")
                 {
                     Console.WriteLine($"Okänt kommando: {command}");
