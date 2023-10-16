@@ -26,8 +26,13 @@ namespace AddressList
         static void Main(string[] args)
         {
 
-            
-
+            Person arne = new Person("arne")
+            {
+                phoneNR = "123",
+                adress = "väg1"
+            };
+            arne.Print();
+ 
             Console.WriteLine("Hej och välkommen till adresslistan.");
             Console.WriteLine("Skriv 'hjälp' för hjälp!");
             string command;
