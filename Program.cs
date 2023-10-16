@@ -2,8 +2,30 @@
 {
     internal class Program
     {
+        public class person
+        {
+            private string name;
+            public string phoneNR, adress;
+
+            public person(string Name)
+            {
+                name = Name;
+            }
+
+            public void print()
+            {
+                Console.WriteLine($"Namn: {name},\n    Telefonnummer: {phoneNR}, \n    Adress: {adress}");
+            }
+
+        }
+
+        static List<person> personList = new List<person>(); 
+
         static void Main(string[] args)
         {
+
+            
+
             Console.WriteLine("Hej och välkommen till adresslistan.");
             Console.WriteLine("Skriv 'hjälp' för hjälp!");
             string command;
