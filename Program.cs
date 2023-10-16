@@ -15,7 +15,7 @@
                 {
                     Console.WriteLine($"Tyvärr ej implementerat!");
                 }
-                else if (command == "sluta")
+                else if (command == "Sluta")
                 {
 
                 }
