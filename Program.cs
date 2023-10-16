@@ -45,8 +45,7 @@
                 //Kommandot "arne" ska skriva ut arnes uppgifter.
                 else if (command == "arne")
                 {
-                    string text = File.ReadAllText("C:\\Adresser.txt");
-                    string[] lines = File.ReadAllLines(
+                    string text = File.ReadAllText("c:\\adresser.txt");
                     Console.WriteLine(text);
                 }
                 else if(command == "berith")
@@ -55,6 +54,9 @@
                 }
             } while (command != "sluta");
             Console.WriteLine("HEJ DÅ!");
+
+
+
         }
     }
 }
