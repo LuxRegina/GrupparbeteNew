@@ -1,5 +1,6 @@
 ﻿namespace AddressList
 {
+    using System.IO;
     internal class Program
     {
         public class person
@@ -44,7 +45,7 @@
                 //Kommandot "arne" ska skriva ut arnes uppgifter.
                 else if (command == "arne")
                 {
-                    string text = File.ReadAllText(C:\\adresslista.txt);
+                    string text = File.ReadAllText("C:\\Adresser.txt");
                     string[] lines = File.ReadAllLines(
                     Console.WriteLine(text);
                 }
