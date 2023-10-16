@@ -11,7 +11,7 @@
             {
                 Console.Write("Kommando: ");
                 command = Console.ReadLine();
-                if (command == "hjälp")
+                if (command == "HJÄLP")
                 {
                     Console.WriteLine($"Tyvärr ej implementerat!");
                 }
