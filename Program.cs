@@ -1,31 +1,37 @@
 ﻿namespace AddressList
 {
+    using System;
     using System.IO;
+    
+
     internal class Program
     {
-        public class person
+        
+        public class Person
         {
             private string name;
             public string phoneNR, adress;
 
-            public person(string Name)
+            public Person(string Name)
             {
                 name = Name;
             }
 
-            public void print()
+            public void Print()
             {
                 Console.WriteLine($"Namn: {name},\n    Telefonnummer: {phoneNR}, \n    Adress: {adress}");
             }
 
         }
 
-        static List<person> personList = new List<person>(); 
+        static List<Person> personList = new List<Person>(); 
 
         static void Main(string[] args)
         {
 
+
             
+
 
             Console.WriteLine("Hej och välkommen till adresslistan.");
             Console.WriteLine("Skriv 'hjälp' för hjälp!");
