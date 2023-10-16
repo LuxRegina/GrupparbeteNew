@@ -5,7 +5,7 @@ namespace AddressList
     using System.IO;
     internal class Program
     {
-        public class person
+        public class Person
         {
             private string name;
             public string phoneNR, adress;
