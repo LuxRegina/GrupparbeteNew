@@ -9,7 +9,7 @@
             string command;
             do
             {
-                Console.Write("Kommando: ");
+                Console.Write("Ange ett namn: ");
                 command = Console.ReadLine();
                 if (command == "HJÄLP")
                 {
