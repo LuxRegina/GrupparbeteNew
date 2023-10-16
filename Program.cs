@@ -1,13 +1,11 @@
-﻿namespace AddressList
-{
-    using System;
-    using System.IO;
-    
+﻿using System;
 
+namespace AddressList
+{
+    using System.IO;
     internal class Program
     {
-        
-        public class Person
+        public class person
         {
             private string name;
             public string phoneNR, adress;
