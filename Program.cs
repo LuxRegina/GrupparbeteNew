@@ -2,6 +2,7 @@
 
 namespace AddressList
 {
+    using Microsoft.VisualBasic;
     using System.IO;
     using System.Xml;
 
@@ -9,9 +10,9 @@ namespace AddressList
     {
         public class Person
         {
-            private string name {  get; set; }
-            public string phoneNR {  get; set; }
-            public string adress {  get; set; }
+            private string name { get; set; }
+            public string phoneNR { get; set; }
+            public string adress { get; set; }
 
             public Person(string Name, string PhoneNR, string Adress)
             {
@@ -22,27 +23,29 @@ namespace AddressList
 
             public void Print()
             {
+                Console.WriteLine();
                 Console.WriteLine($"Namn: {name},\n    Telefonnummer: {phoneNR}, \n    Adress: {adress}");
+
             }
-            
+
         }
 
 
-        static List<Person> personList = new List<Person>(); 
-        static List<Person> splitList = new List<Person>();
+        static List<Person> personList = new List<Person>();
+
+
 
         static void Main(string[] args)
         {
- 
+
             Console.WriteLine("Hej och välkommen till adresslistan.");
             Console.WriteLine("Skriv 'hjälp' för hjälp!");
             string command;
             do
             {
-                string[] text = File.ReadAllLines("Adresser.txt");
-                List<string> personList = text.ToList();
 
-                Console.Write("Ange ett namn: ");
+
+                Console.Write("Ange ett kommando: ");
                 command = Console.ReadLine();
                 if (command == "HJÄLP")
                 {
@@ -52,36 +55,60 @@ namespace AddressList
                 {
 
                 }
-                //Kommandot "arne" ska skriva ut arnes uppgifter.
+
                 else if (command == "load")
                 {
+                    string[] text = File.ReadAllLines("Adresser.txt");
 
-                   
-                    foreach (string line in personList)
+
+                    foreach (var line in text)
                     {
-                        
-                        splitList = line.Split(",");
-                        Console.WriteLine(line);
-                        Person n = new Person();
-                    }
 
-                    
+                        string[] personDataArray = line.Split(',');
+
+                        string name = personDataArray[0];
+                        string phoneNR = personDataArray[1];
+                        string adress = personDataArray[2];
+
+                        Person person = new Person(name, phoneNR, adress);
+
+                        personList.Add(person);
+
+                    }
 
                 }
 
                 else if (command == "list")
                 {
-                    
-                    for (int i = 0; i< personList.Count; i++)
+
+                    foreach (Person person in personList)
                     {
-                        Console.WriteLine(i);
+                        person.Print();
                     }
 
-                    
-                                     
-                                     
                 }
 
+
+                else if (command == "add")
+                {
+                    Console.WriteLine("Lägg till ett namn: ");
+                    string newInputName = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.WriteLine("Lägg till ett telefonnr: ");
+                    string newInputphoneNr = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.WriteLine("Lägg till adress: ");
+                    string newInputAdress = Console.ReadLine();
+
+                    string name = newInputName;
+                    string phoneNR = newInputphoneNr;
+                    string adress = newInputAdress;
+
+                    Person person = new Person(name, phoneNR, adress);
+
+                    personList.Add(person);
+
+                }
             } while (command != "sluta");
             Console.WriteLine("HEJ DÅ!");
 
