@@ -28,12 +28,7 @@ namespace AddressList
         static void Main(string[] args)
         {
 
-            Person arne = new Person("arne")
-            {
-                phoneNR = "123",
-                adress = "väg1"
-            };
-            arne.Print();
+            
  
             Console.WriteLine("Hej och välkommen till adresslistan.");
             Console.WriteLine("Skriv 'hjälp' för hjälp!");
@@ -56,6 +51,10 @@ namespace AddressList
 
                     
                     string[] text = File.ReadAllLines("Adresser.txt");
+                    List<string> personList = text.ToList();
+
+                    Console.WriteLine(personList[1]);
+
                     foreach(string str in text)
                     {
                         str.Split(",");
