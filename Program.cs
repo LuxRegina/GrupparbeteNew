@@ -22,7 +22,7 @@ namespace AddressList
             {
                 Console.WriteLine($"Namn: {name},\n    Telefonnummer: {phoneNR}, \n    Adress: {adress}");
             }
-
+            
         }
 
 
@@ -30,14 +30,15 @@ namespace AddressList
 
         static void Main(string[] args)
         {
-
-            
  
             Console.WriteLine("Hej och välkommen till adresslistan.");
             Console.WriteLine("Skriv 'hjälp' för hjälp!");
             string command;
             do
             {
+                string[] text = File.ReadAllLines("Adresser.txt");
+                List<string> personList = text.ToList();
+
                 Console.Write("Ange ett namn: ");
                 command = Console.ReadLine();
                 if (command == "HJÄLP")
@@ -54,21 +55,25 @@ namespace AddressList
 
                     
                     string[] text = File.ReadAllLines("Adresser.txt");
-                    List<string> personList = text.ToList();
-
-                    Console.WriteLine(personList());
-
                     foreach(string str in text)
                     {
-                        str.Split(",");
+                        line.Split(",");
+                        Console.WriteLine(line);
                     }
-                    Console.WriteLine(text);
+                    
                 }
-                
-                else if(command == "berith")
+                                
+                else if (command == "list")
                 {
-                    Console.WriteLine($"Okänt kommando: {command}");
+                    
+                    for (int i = 0; i< personList.Count; i++)
+                    {
+                        Console.WriteLine(i);
+                    }
+                                     
+                                     
                 }
+
             } while (command != "sluta");
             Console.WriteLine("HEJ DÅ!");
 
