@@ -7,12 +7,15 @@ namespace AddressList
     {
         public class Person
         {
-            private string name;
-            public string phoneNR, adress;
+            private string name {  get; set; }
+            public string phoneNR {  get; set; }
+            public string adress {  get; set; }
 
-            public Person(string Name)
+            public Person(string Name, string PhoneNR, string Adress)
             {
                 name = Name;
+                phoneNR = PhoneNR;
+                adress = Adress;
             }
 
             public void Print()
@@ -53,7 +56,7 @@ namespace AddressList
                     string[] text = File.ReadAllLines("Adresser.txt");
                     List<string> personList = text.ToList();
 
-                    Console.WriteLine(personList[1]);
+                    Console.WriteLine(personList());
 
                     foreach(string str in text)
                     {
