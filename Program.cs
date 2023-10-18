@@ -3,6 +3,8 @@
 namespace AddressList
 {
     using System.IO;
+    using System.Xml;
+
     internal class Program
     {
         public class Person
@@ -27,6 +29,7 @@ namespace AddressList
 
 
         static List<Person> personList = new List<Person>(); 
+        static List<Person> splitList = new List<Person>();
 
         static void Main(string[] args)
         {
@@ -53,16 +56,19 @@ namespace AddressList
                 else if (command == "load")
                 {
 
-                    
-                    string[] text = File.ReadAllLines("Adresser.txt");
-                    foreach(string str in text)
+                   
+                    foreach (string line in personList)
                     {
-                        line.Split(",");
+                        
+                        splitList = line.Split(",");
                         Console.WriteLine(line);
+                        Person n = new Person();
                     }
+
                     
+
                 }
-                                
+
                 else if (command == "list")
                 {
                     
@@ -70,6 +76,8 @@ namespace AddressList
                     {
                         Console.WriteLine(i);
                     }
+
+                    
                                      
                                      
                 }
