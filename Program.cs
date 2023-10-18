@@ -2,6 +2,7 @@
 
 namespace AddressList
 {
+    using System.IO;
     internal class Program
     {
         public class Person
@@ -21,22 +22,20 @@ namespace AddressList
             
         }
 
-        static List<Person> personList = new List<Person>();
+
+        static List<Person> personList = new List<Person>(); 
+
         static void Main(string[] args)
         {
-
-            Person arne = new Person("arne")
-            {
-                phoneNR = "123",
-                adress = "väg1"
-            };
-            arne.Print();
  
             Console.WriteLine("Hej och välkommen till adresslistan.");
             Console.WriteLine("Skriv 'hjälp' för hjälp!");
             string command;
             do
             {
+                string[] text = File.ReadAllLines("Adresser.txt");
+                List<string> personList = text.ToList();
+
                 Console.Write("Ange ett namn: ");
                 command = Console.ReadLine();
                 if (command == "HJÄLP")
@@ -48,15 +47,26 @@ namespace AddressList
 
                 }
                 //Kommandot "arne" ska skriva ut arnes uppgifter.
-                else if (command == "arne")
+                else if (command == "load")
                 {
-                    string text = File.ReadAllText("Adresser.txt");
-                    Console.WriteLine(text);
+                                     
+                    foreach (string line in personList)
+                    {
+                        line.Split(",");
+                        Console.WriteLine(line);
+                    }
+                    
                 }
-                
-                else if(command == "berith")
+                                
+                else if (command == "list")
                 {
-                    Console.WriteLine($"Okänt kommando: {command}");
+                    
+                    for (int i = 0; i< personList.Count; i++)
+                    {
+                        Console.WriteLine(i);
+                    }
+                                     
+                                     
                 }
 
             } while (command != "sluta");
