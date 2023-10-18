@@ -49,6 +49,8 @@ namespace AddressList
                 //Kommandot "arne" ska skriva ut arnes uppgifter.
                 else if (command == "load")
                 {
+
+                    
                     string[] text = File.ReadAllLines("Adresser.txt");
                     foreach(string str in text)
                     {
