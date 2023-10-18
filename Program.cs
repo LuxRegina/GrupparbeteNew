@@ -4,7 +4,9 @@ namespace AddressList
 {
     using Microsoft.VisualBasic;
     using System.IO;
+    using System.Security.Cryptography;
     using System.Xml;
+
 
     internal class Program
     {
@@ -88,7 +90,6 @@ namespace AddressList
 
                 }
 
-
                 else if (command == "add")
                 {
                     Console.WriteLine("Lägg till ett namn: ");
@@ -108,7 +109,28 @@ namespace AddressList
 
                     personList.Add(person);
 
+
+
+
+
+                    String personString = $"{newInputName}, {newInputphoneNr}, {newInputAdress}";
+                    //StreamWriter save = new StreamWriter("Adresser.txt", true);
+
+                    using (StreamWriter writer = new StreamWriter(Adresser.txt, true)) ;
+                    {
+                        writer.WriteLine(personString);
+                        //File.AppendText(${name})
+                    }
                 }
+
+
+
+                else if (command == "save")
+                {
+
+                }
+
+
             } while (command != "sluta");
             Console.WriteLine("HEJ DÅ!");
 
